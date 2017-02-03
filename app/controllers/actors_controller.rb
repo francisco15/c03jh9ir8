@@ -15,7 +15,8 @@ class ActorsController < ApplicationController
 			render :new
 		end
 	end
-
+	# Strong parameters, evita un problema de seguridad llamado asignación masiva
+	# params.require(:model).permit(<lista_de_atributos_permitidos>)
 	private
 	def get_params
 		params.require(:actor).permit(:name,:bio,:birth_date,:birth_place,:image_url,:alive,:death_date,:death_place)
